@@ -22,6 +22,18 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useForm, ValidationError } from '@formspree/react';
 import { projectsData } from '../App';
+
+// Import images
+import logo from '../assets/logos/logo.png';
+import homepagepic from '../assets/logos/homepagepic.png';
+import whyChooseUs from '../assets/logos/why-choose-us.png';
+import blackterra from '../assets/logos/blackterra.png';
+import redline from '../assets/logos/redline.png';
+import karsoruce from '../assets/logos/karsoruce.png';
+import shamzak from '../assets/logos/shamzak.jpg';
+import thev from '../assets/logos/thev.png';
+import nnpc from '../assets/logos/nnpc.png';
+import ptdf from '../assets/logos/ptdf.png';
 import {
   Menu,
   X,
@@ -113,13 +125,13 @@ export default function BlueMeridianModern() {
   ];
 
   const partners = [
-    { name: 'NNPC', logo: '/logos/nnpc.png' },
-    { name: 'PTDF', logo: '/logos/ptdf.png' },
-    { name: 'Blackterra Energies', logo: '/logos/blackterra.png' },
-    { name: 'Redline Autos', logo: '/logos/redline.png' },
-    { name: 'Karsource Global', logo: '/logos/karsoruce.png' },
-    { name: 'Shamzak Farms', logo: '/logos/shamzak.jpg' },
-    { name: 'The V Malaysia', logo: '/logos/thev.png' }
+    { name: 'NNPC', logo: nnpc },
+    { name: 'PTDF', logo: ptdf },
+    { name: 'Blackterra Energies', logo: blackterra },
+    { name: 'Redline Autos', logo: redline },
+    { name: 'Karsource Global', logo: karsoruce },
+    { name: 'Shamzak Farms', logo: shamzak },
+    { name: 'The V Malaysia', logo: thev }
   ];
 
   const projects = projectsData;
@@ -133,7 +145,7 @@ export default function BlueMeridianModern() {
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="flex items-center justify-between h-20">
               <a href="#hero" className="flex items-center gap-2">
-                <img src="/logos/logo.png" alt="Bleu Meridian Technologies" className="h-10 w-auto" />
+                <img src={logo} alt="Bleu Meridian Technologies" className="h-10 w-auto" />
                 <div>
                   <div className="text-sm font-bold text-slate-900">Bleu Meridian</div>
                   <div className="text-xs text-slate-600 -mt-0.5">Technologies</div>
@@ -247,7 +259,7 @@ export default function BlueMeridianModern() {
                 <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.15 }} className="rounded-3xl overflow-hidden shadow-2xl">
                   <div className="relative h-72 md:h-96 lg:h-[520px] bg-slate-100">
                     {/* background image */}
-                    <img src="/logos/homepagepic.png" alt="team" className="object-cover w-full h-full" />
+                    <img src={homepagepic} alt="team" className="object-cover w-full h-full" />
                   </div>
                 </motion.div>
               </div>
@@ -317,7 +329,7 @@ export default function BlueMeridianModern() {
               >
                 <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                   <img
-                    src="/logos/why-choose-us.png"
+                    src={whyChooseUs}
                     alt="Bleu Meridian Team"
                     className="w-full h-[500px] object-cover"
                   />
@@ -866,7 +878,7 @@ export default function BlueMeridianModern() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
               {/* Company Info */}
               <div className="lg:col-span-1">
-                <img src="/logos/logo.png" alt="Bleu Meridian" className="h-16 w-auto mb-4" />
+                <img src={logo} alt="Bleu Meridian" className="h-16 w-auto mb-4" />
                 <p className="text-slate-400 text-sm leading-relaxed">
                   Building elegant software that scales — from idea to impact. We partner with ambitious organisations to deliver modern digital products.
                 </p>

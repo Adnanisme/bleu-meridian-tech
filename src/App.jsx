@@ -1,16 +1,14 @@
 import React from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import BlueMeridianModern from './components/BlueMeridian_Modern_React.jsx'
 import CaseStudy from './components/CaseStudy.jsx'
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<BlueMeridianModern />} />
-        <Route path="/case-study/:id" element={<CaseStudy projects={projectsData} />} />
-      </Routes>
-    </Router>
+    <Routes>
+      <Route path="/" element={<BlueMeridianModern />} />
+      <Route path="/case-study/:id" element={<CaseStudy projects={projectsData} />} />
+    </Routes>
   )
 }
 
