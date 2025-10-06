@@ -96,6 +96,7 @@ export default function BlueMeridianModern() {
   const [openMenu, setOpenMenu] = useState(false);
   const [flippedProject, setFlippedProject] = useState(null);
   const [flippedWorkCard, setFlippedWorkCard] = useState(null);
+  const [clickedWorkCard, setClickedWorkCard] = useState(null);
   const [state, handleSubmit] = useForm("meorzrjo");
 
   const services = [
@@ -136,6 +137,10 @@ export default function BlueMeridianModern() {
 
   const projects = projectsData;
 
+  // Handle click for mobile users - toggle clicked state
+  const handleWorkCardClick = (cardIndex) => {
+    setClickedWorkCard(clickedWorkCard === cardIndex ? null : cardIndex);
+  };
 
   return (
     <div className="font-sans antialiased text-gray-900 bg-gradient-to-b from-white via-slate-50 to-slate-100">
@@ -643,13 +648,18 @@ export default function BlueMeridianModern() {
                 desc: 'Deployment, monitoring and optimization',
                 details: 'We ensure a smooth launch with comprehensive testing and deployment. Post-launch, we monitor performance, gather user feedback, and provide ongoing support and optimization to maximize success.',
                 icon: <Award className="w-8 h-8" />
-              }].map((p, i) => (
+              }].map((p, i) => {
+                // Card flips if hovering OR clicked
+                const isFlipped = flippedWorkCard === i || clickedWorkCard === i;
+                
+                return (
                 <motion.div
                   key={i}
                   className="relative h-80 cursor-pointer"
                   style={{ perspective: '1000px' }}
                   onHoverStart={() => setFlippedWorkCard(i)}
                   onHoverEnd={() => setFlippedWorkCard(null)}
+                  onClick={() => handleWorkCardClick(i)}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -658,7 +668,7 @@ export default function BlueMeridianModern() {
                   <motion.div
                     className="relative w-full h-full"
                     style={{ transformStyle: 'preserve-3d' }}
-                    animate={{ rotateY: flippedWorkCard === i ? 180 : 0 }}
+                    animate={{ rotateY: isFlipped ? 180 : 0 }}
                     transition={{ duration: 0.6 }}
                   >
                     {/* Front of card */}
@@ -670,7 +680,7 @@ export default function BlueMeridianModern() {
                         <div className="mb-4 p-4 bg-white/10 rounded-2xl backdrop-blur">{p.icon}</div>
                         <div className="text-3xl font-bold mb-3">{p.step}</div>
                         <div className="text-indigo-100">{p.desc}</div>
-                        <div className="mt-6 text-sm text-indigo-200">Hover to learn more</div>
+                        <div className="mt-6 text-sm text-indigo-200">Hover or click to learn more</div>
                       </div>
                     </div>
 
@@ -686,7 +696,8 @@ export default function BlueMeridianModern() {
                     </div>
                   </motion.div>
                 </motion.div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </section>
@@ -703,9 +714,9 @@ export default function BlueMeridianModern() {
             <div className="relative">
               <div className="overflow-hidden">
                 <motion.div
-                  className="flex gap-8 md:gap-12 items-center"
+                  className="flex gap-6 md:gap-12 items-center"
                   animate={{
-                    x: ['0%', '-50%'],
+                    x: ['0%', '-33.333%'],
                   }}
                   transition={{
                     x: {
@@ -716,11 +727,11 @@ export default function BlueMeridianModern() {
                     },
                   }}
                 >
-                  {/* First set of logos */}
-                  {partners.concat(partners).map((partner, i) => (
+                  {/* Triple track for seamless mobile loop */}
+                  {partners.concat(partners).concat(partners).map((partner, i) => (
                     <div
                       key={`logo-${i}`}
-                      className="flex-shrink-0 bg-white rounded-xl px-6 py-4 md:px-8 md:py-6 border border-slate-200 shadow-sm hover:shadow-md transition-shadow"
+                      className="flex-shrink-0 bg-white rounded-xl px-4 py-3 md:px-8 md:py-6 border border-slate-200 shadow-sm hover:shadow-md transition-shadow"
                     >
                       <div className="flex flex-col items-center gap-2">
                         <img
