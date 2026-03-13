@@ -4,7 +4,20 @@
       "Bash(npm install)",
       "Bash(npm install:*)",
       "Bash(rm:*)",
-      "Bash(npm run dev:*)"
+      "Bash(npm run dev:*)",
+      "Bash(cd \"/c/Users/jibri/Downloads/Bleu Meridian Technologies/blueeee 2/blueeee/src/assets\" && rm logos/homepagepic.png logos/why-choose-us.png logos/redline-global-resources-limited.png logos/redline.png && mv logos/karsoruce.png logos/karsource.png && echo \"Logos cleaned\")",
+      "Bash(cd \"/c/Users/jibri/Downloads/Bleu Meridian Technologies/blueeee 2/blueeee/src/assets/portfolio\" && mv \"NPTR \\(1\\).webp\" nptr-1.webp && mv \"NPTR \\(2\\).webp\" nptr-2.webp && mv \"NPTR \\(3\\).webp\" nptr-3.webp && mv \"protrack \\(1\\).webp\" protrack-1.webp && mv \"protrack \\(2\\).webp\" protrack-2.webp && mv \"protrack \\(3\\).webp\" protrack-3.webp && mv \"spotts-app \\(1\\).webp\" spotts-1.webp && mv \"spotts-app \\(2\\).webp\" spotts-2.webp && mv \"spotts-app \\(3\\).webp\" spotts-3.webp && mv \"websites \\(1\\).webp\" websites-1.webp && mv \"websites \\(2\\).webp\" websites-2.webp && mv \"websites \\(3\\).webp\" websites-3.webp && echo \"Portfolio renamed\" && ls -la)",
+      "Bash(cd \"/c/Users/jibri/Downloads/Bleu Meridian Technologies/blueeee 2/blueeee\" && npx vite build 2>&1 | tail -20)",
+      "WebFetch(domain:www.reactbits.dev)",
+      "WebFetch(domain:reactbits.dev)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:www.npmjs.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(cd /c/Users/jibri/Downloads/\"Bleu Meridian Technologies\"/\"blueeee 2\"/blueeee && gh api repos/DavidHDev/react-bits/git/trees/main 2>/dev/null | python -c \"import json,sys; data=json.load\\(sys.stdin\\); [print\\(t['path']\\) for t in data['tree']]\" 2>/dev/null || echo \"Failed to get tree\")",
+      "Bash(gh api:*)",
+      "WebFetch(domain:api.github.com)",
+      "Bash(cd \"C:\\\\Users\\\\jibri\\\\Downloads\\\\Bleu Meridian Technologies\\\\blueeee 2\\\\blueeee\" && npx shadcn@latest add \"https://reactbits.dev/r/Threads-JS-CSS\" 2>&1)",
+      "Bash(cd \"C:\\\\Users\\\\jibri\\\\Downloads\\\\Bleu Meridian Technologies\\\\blueeee 2\\\\blueeee\" && echo 'Y' | npx shadcn@latest init --defaults 2>&1)"
     ],
     "deny": [],
     "ask": []
