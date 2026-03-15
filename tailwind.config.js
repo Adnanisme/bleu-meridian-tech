@@ -24,6 +24,25 @@ export default {
           glow: '#A5E1FF',
         },
       },
+      animation: {
+        'float-slow': 'float-slow 20s ease-in-out infinite',
+        'float-slower': 'float-slower 25s ease-in-out infinite',
+        'float-reverse': 'float-reverse 22s ease-in-out infinite',
+      },
+      keyframes: {
+        'float-slow': {
+          '0%, 100%': { transform: 'translate(0, 0)' },
+          '50%': { transform: 'translate(30px, -40px)' },
+        },
+        'float-slower': {
+          '0%, 100%': { transform: 'translate(0, 0)' },
+          '50%': { transform: 'translate(-25px, 35px)' },
+        },
+        'float-reverse': {
+          '0%, 100%': { transform: 'translate(-50%, -50%)' },
+          '50%': { transform: 'translate(calc(-50% + 20px), calc(-50% - 30px))' },
+        },
+      },
     },
   },
   plugins: [],

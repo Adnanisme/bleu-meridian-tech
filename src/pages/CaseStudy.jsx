@@ -1,9 +1,13 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Clock, Users, Target, Code2, Check } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
+import { ArrowLeft, Clock, Users } from 'lucide-react';
 import { projectsData } from '../data/projects';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
+import challengeIcon from '../assets/case-studies-icons/challenge.svg';
+import solutionIcon from '../assets/case-studies-icons/solution.svg';
+import checkIcon from '../assets/case-studies-icons/check.svg';
 
 export default function CaseStudy() {
   const { id } = useParams();
@@ -25,6 +29,16 @@ export default function CaseStudy() {
 
   return (
     <div className="min-h-screen bg-white">
+      <Helmet>
+        <title>{project.title} — Project | Bleu Meridian Technologies</title>
+        <meta name="description" content={`${project.description} Built by Bleu Meridian Technologies for ${project.client}. Custom software development company serving clients worldwide.`} />
+        <meta name="keywords" content={`${project.title}, ${project.category}, ${project.tags.join(', ')}, custom software development, app development, Bleu Meridian Technologies`} />
+        <link rel="canonical" href={`https://bleumeridiantech.com/projects/${id}`} />
+        <meta property="og:title" content={`${project.title} — Bleu Meridian Technologies`} />
+        <meta property="og:description" content={project.description} />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={`https://bleumeridiantech.com/projects/${id}`} />
+      </Helmet>
       <Navbar />
 
       {/* Hero */}
@@ -40,7 +54,7 @@ export default function CaseStudy() {
             Back to home
           </button>
 
-          <span className="text-xs font-semibold tracking-wide uppercase text-brand-light/60 block mb-3">
+          <span className="text-xs font-semibold tracking-[0.2em] uppercase text-brand-light/60 block mb-3">
             {project.category}
           </span>
 
@@ -87,12 +101,7 @@ export default function CaseStudy() {
               >
                 {project.displayType === 'mobile' ? (
                   <div className="mx-auto max-w-[220px]">
-                    <div className="rounded-[2rem] overflow-hidden border-[6px] border-slate-800 bg-slate-900 shadow-2xl">
-                      <div className="relative">
-                        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-20 h-5 bg-slate-800 rounded-b-2xl z-10" />
-                        <img src={img} alt={project.imageLabels[i]} className="w-full aspect-[9/19.5] object-cover object-top" />
-                      </div>
-                    </div>
+                    <img src={img} alt={project.imageLabels[i]} loading="lazy" className="w-full h-auto object-contain" />
                     <p className="text-center text-xs text-slate-400 mt-3 font-medium">{project.imageLabels[i]}</p>
                   </div>
                 ) : (
@@ -108,7 +117,7 @@ export default function CaseStudy() {
                           <div className="h-5 bg-slate-200/80 rounded-md max-w-xs mx-auto" />
                         </div>
                       </div>
-                      <img src={img} alt={project.imageLabels[i]} className="w-full" />
+                      <img src={img} alt={project.imageLabels[i]} loading="lazy" className="w-full" />
                     </div>
                     <p className="text-xs text-slate-400 mt-3 font-medium">{project.imageLabels[i]}</p>
                   </div>
@@ -131,8 +140,8 @@ export default function CaseStudy() {
               transition={{ duration: 0.5 }}
             >
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-9 h-9 rounded-lg bg-navy-800/5 flex items-center justify-center text-brand-mid">
-                  <Target className="w-4 h-4" />
+                <div className="w-10 h-10 rounded-xl bg-amber-50 flex items-center justify-center">
+                  <img src={challengeIcon} alt="" className="w-5 h-5" style={{ filter: 'invert(52%) sepia(98%) saturate(1200%) hue-rotate(1deg) brightness(103%) contrast(101%)' }} />
                 </div>
                 <h2 className="text-xl font-bold text-navy-800">The Challenge</h2>
               </div>
@@ -147,8 +156,8 @@ export default function CaseStudy() {
               transition={{ duration: 0.5, delay: 0.1 }}
             >
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-9 h-9 rounded-lg bg-navy-800/5 flex items-center justify-center text-brand-mid">
-                  <Code2 className="w-4 h-4" />
+                <div className="w-10 h-10 rounded-xl bg-sky-50 flex items-center justify-center">
+                  <img src={solutionIcon} alt="" className="w-5 h-5" style={{ filter: 'invert(35%) sepia(85%) saturate(1000%) hue-rotate(185deg) brightness(95%) contrast(95%)' }} />
                 </div>
                 <h2 className="text-xl font-bold text-navy-800">Our Solution</h2>
               </div>
@@ -164,12 +173,17 @@ export default function CaseStudy() {
             transition={{ duration: 0.5 }}
             className="mt-16"
           >
-            <h2 className="text-xl font-bold text-navy-800 mb-6">Results</h2>
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-10 h-10 rounded-xl bg-emerald-50 flex items-center justify-center">
+                <img src={checkIcon} alt="" className="w-5 h-5" style={{ filter: 'invert(42%) sepia(74%) saturate(600%) hue-rotate(110deg) brightness(95%) contrast(90%)' }} />
+              </div>
+              <h2 className="text-xl font-bold text-navy-800">Results</h2>
+            </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {project.results.map((result, i) => (
                 <div key={i} className="flex items-start gap-3 p-4 rounded-xl bg-white border border-slate-100">
                   <div className="w-6 h-6 rounded-full bg-emerald-50 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Check className="w-3.5 h-3.5 text-emerald-600" />
+                    <img src={checkIcon} alt="" className="w-3.5 h-3.5" style={{ filter: 'invert(42%) sepia(74%) saturate(600%) hue-rotate(110deg) brightness(95%) contrast(90%)' }} />
                   </div>
                   <span className="text-sm text-slate-600">{result}</span>
                 </div>

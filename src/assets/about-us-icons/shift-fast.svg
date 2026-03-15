@@ -1,0 +1,9 @@
+<svg id="Lightning--Streamline-Carbon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" height="16" width="16">
+  <desc>
+    Lightning Streamline Icon: https://streamlinehq.com
+  </desc>
+  <defs></defs>
+  <title>bolt</title>
+  <path d="M11.61 29.92a1 1 0 0 1-.6-1.07L12.83 17H8a1 1 0 0 1-1-1.23l3-13A1 1 0 0 1 11 2h10a1 1 0 0 1 .78.37 1 1 0 0 1 .2.85L20.25 11H25a1 1 0 0 1 .9.56 1 1 0 0 1-.11 1l-13 17A1 1 0 0 1 12 30a1.09 1.09 0 0 1-.39-.08ZM17.75 13l2-9H11.8L9.26 15h5.91l-1.59 10.28L23 13Z" fill="#000000"></path>
+  <path id="_Transparent_Rectangle_" transform="rotate(-180 16 16)" d="M0 0h32v32H0Z" fill="none"></path>
+</svg>
